@@ -19,3 +19,6 @@ Route::get('/authorisation', function () {
 Route::get('/registration', function () {
     return view('reg');
 });
+Route::get('/', function () {
+    return view('index');
+});

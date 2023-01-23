@@ -21,6 +21,9 @@ Route::get('/authorisation', function () {
 Route::get('/reg', function () {
     return view('reg');
 });
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
 
 Route::name('user.')->group(function(){
     Route::view('/', 'home')->middleware('auth')->name('private');
@@ -39,7 +42,12 @@ Route::name('user.')->group(function(){
         return view('registration');
     })->name('registration');
     Route::post('/registration', [RegisterController::class, 'save']);
-
+    Route::get('/profile', function(){
+        if(Auth::check()){
+            return redirect(route('user.private'));
+        }
+        return redirect('login');
+    })->name('profile');
 });
     
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,0 +1,21 @@
+.userinfo{
+    position: absolute;
+    background: rgb(255, 255, 255);
+    top: 150px;
+    left: 400px;
+    padding: 20px;
+    border-radius: 30px;    
+    display: flex;
+    flex-direction: column;
+}
+.punkt{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.pfp{
+    margin: auto;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+}

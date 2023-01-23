@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="menu-item">
-            <a href="#">
+            <a href="{{ route('profile')}}">
                 <img src="img/user.svg" alt="">
                 <p class="item-text">Профиль</p>
             </a>

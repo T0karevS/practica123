@@ -9,18 +9,18 @@
 </head>
 <body>
     <header>
-        <img src="img\AGAT.svg" alt="">
+        <img class="logo" src="img\AGAT.svg" alt="">
         <div class="search-input">
             <input type="text" placeholder="Что ищешь?" class="search-text">
             <input type="button" class="search">
         </div>
         <div class="aboba">
-        <img src="img/notification.svg" alt="">
-        <div class="profile-mini" >
-            <img class="avatar" src="img/chicha.png" alt="">
-            <p class="name">Lil chicha</p>
-            <img class="downbutton" src="img/down.png" alt="">
-        </div>    
+            <img src="img/notification.svg" alt="">
+            <div class="profile-mini" >
+                <img class="avatar" src="img/chicha.png" alt="">
+                <p class="name">Lil chicha</p>
+                <img class="downbutton" src="img/down.png" alt="">
+            </div>    
         </div>
     </header>
     <div class="menu-items">

@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&family=Montserrat:wght@500&display=swap');
 body{
     background-image: url("../img/picture.png");
+    margin: 0px;
+    padding: 0px;
 }
 .logo
 {

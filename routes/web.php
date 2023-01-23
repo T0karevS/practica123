@@ -16,16 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/authorisation', function () {
-    return view('aut');
+    return view('llogin');
 });
-Route::get('/registration', function () {
+Route::get('/reg', function () {
     return view('reg');
 });
-Route::get('/', function () {
-    return view('index');
-});
+
 Route::name('user.')->group(function(){
-    Route::view('/private', 'private')->middleware('auth')->name('private');
+    Route::view('/', 'home')->middleware('auth')->name('private');
     Route::get('/login', function(){
         if(Auth::check()){
             return redirect(route('user.private'));
@@ -41,8 +39,9 @@ Route::name('user.')->group(function(){
         return view('registration');
     })->name('registration');
     Route::post('/registration', [RegisterController::class, 'save']);
-});
 
+});
+    
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();

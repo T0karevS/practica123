@@ -21,8 +21,13 @@ Route::get('/authorisation', function () {
 Route::get('/reg', function () {
     return view('reg');
 });
-Route::get('/profile', function () {
+Route::get('/profile', function (){
+    if(Auth::check()){
     return view('profile');
+    }
+    else{
+        return redirect(route('login'));
+    }
 })->name('profile');
 
 Route::name('user.')->group(function(){
@@ -42,12 +47,12 @@ Route::name('user.')->group(function(){
         return view('registration');
     })->name('registration');
     Route::post('/registration', [RegisterController::class, 'save']);
-    Route::get('/profile', function(){
-        if(Auth::check()){
-            return redirect(route('user.private'));
-        }
-        return redirect('login');
-    })->name('profile');
+    // Route::get('/profile', function(){
+    //     if(Auth::check()){
+    //         return redirect(route('profile'));
+    //     }
+    //     return redirect('login');
+    // });
 });
     
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable(false)->unique();
             $table->string('password');
-            $table->string('avatar')->nullable(true);
             $table->timestamps();
             $table->rememberToken();
+            $table->string('avatar')->default('user.svg');;
         });
     }
 

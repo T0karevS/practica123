@@ -3,6 +3,9 @@
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Routes;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,17 +49,11 @@ Route::name('user.')->group(function(){
         }
         return view('registration');
     })->name('registration');
-    Route::post('/registration', [RegisterController::class, 'save']);
-    // Route::get('/profile', function(){
-    //     if(Auth::check()){
-    //         return redirect(route('profile'));
-    //     }
-    //     return redirect('login');
-    // });
-});
     
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+});
+Route::post('/registration', [App\Http\Controllers\registerController::class, 'save'])->name('user.registration.store');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');

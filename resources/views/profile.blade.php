@@ -12,21 +12,44 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="userinfo">
-       <img class="pfp" src="img/chicha.png" alt="">
-       <div class="punkt">
-            <p>Имя:</p>
-            <P>{{ Auth::user()->name }}</P>
-        </div>
-        <DIV class="punkt">
-            <p>email:</p>
-            <p>{{Auth::user()->email}}</p>
-        </DIV>    
-        <DIV class="punkt">
-            <p>email:</p>
-            <p>{{Auth::user()->email}}</p>
-        </DIV>       
-        <button>Редактировать</button>
-    </div>
+    
+    <form method="POST" class="userinfo" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
+                        @csrf
+
+                                        <img class="pfp" src="/avatars/{{ Auth::user()->avatar }}" alt="">
+                                        <div class="punkt">
+                                            <p>Имя:</p>
+                                            <P>{{ Auth::user()->name }}</P>
+                                        </div>
+                                        <DIV class="punkt">
+                                            <p>email:</p>
+                                            <p>{{Auth::user()->email}}</p>
+                                        </DIV>    
+                                        <DIV class="punkt">
+                                            <p>email:</p>
+                                            <p>{{Auth::user()->email}}</p>
+                                        </DIV>      
+                                    </div>
+                                   <div class="row mb-3">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
+  
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar">
+                                @error('avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+  
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Upload Profile') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 </body>
 </html>

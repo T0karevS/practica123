@@ -24,7 +24,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3 align-items-center">
+                        <!-- <div class="row mb-3 align-items-center">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('avatar') }}</label>
 
                             <div class="col-md-6">
@@ -36,8 +36,8 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                        </div>
+                            </div> 
+                        </div> -->
 
                         <div class="row mb-3 align-items-center">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

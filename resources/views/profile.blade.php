@@ -12,14 +12,16 @@
 @extends('layouts.app')
 
 @section('content')
-    
+    <div>
+
+    </div>
     <form method="POST" class="userinfo" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
                         @csrf
 
-                                        <img class="pfp" src="/avatars/{{ Auth::user()->avatar }}" alt="">
+                                        <img class="pfp" src="/avatars/{{ $user }}" alt="">
                                         <div class="punkt">
                                             <p>Имя:</p>
-                                            <P>{{ Auth::user()->name }}</P>
+                                            <P>{{  Auth::user()->email }}</P>
                                         </div>
                                         <DIV class="punkt">
                                             <p>email:</p>

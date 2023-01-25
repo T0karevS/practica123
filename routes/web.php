@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Routes;
+use App\Http\Controllers\ProfileController;
+
 use App\User;
 
 /*
@@ -18,11 +20,8 @@ use App\User;
 |
 */
 
-Route::get('/authorisation', function () {
-    return view('llogin');
-});
-Route::get('/reg', function () {
-    return view('reg');
+Route::get('/friends', function(){
+    return view('friends');
 });
 Route::get('/profile', function (){
     if(Auth::check()){
@@ -32,7 +31,7 @@ Route::get('/profile', function (){
         return redirect(route('login'));
     }
 })->name('profile');
-
+Route::get('/user/{id}', [ProfileController::class, 'index']);
 Route::name('user.')->group(function(){
     Route::view('/', 'home')->middleware('auth')->name('private');
     Route::get('/login', function(){

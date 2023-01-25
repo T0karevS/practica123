@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -21,9 +21,11 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($id)
     {
-        return view('profile');
+        $user =  (DB::table('users')->where('id',$id)->get());
+
+        return view('profile', compact('user'));
     }
   
     /**

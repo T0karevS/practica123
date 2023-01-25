@@ -40,7 +40,7 @@
             </a>
         </div>
         <div class="menu-item">
-        <a href="#">
+        <a href="/friends">
             <img src="img/users.svg" alt="">
             <p class="item-text">Друзья</p>
         </a>

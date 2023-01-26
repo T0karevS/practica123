@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset("css/mainpage.css")}}">
     <link rel="stylesheet" href="{{ asset ("css/profile.css")}}">
-    <title>Your profile</title>
+    <title>profile</title>
 </head>
 <body>
 @extends('layouts.app')
@@ -18,21 +18,22 @@
     <form method="POST" class="userinfo" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
                         @csrf
 
-                                        <img class="pfp" src="/avatars/{{ $user }}" alt="">
+                                        <img class="pfp" src="/avatars/{{ $user->first()->avatar; }}" alt="">
                                         <div class="punkt">
                                             <p>Имя:</p>
-                                            <P>{{  Auth::user()->email }}</P>
+                                            <P>{{  $user->first()->name; }}</P>
                                         </div>
                                         <DIV class="punkt">
                                             <p>email:</p>
-                                            <p>{{Auth::user()->email}}</p>
+                                            <p>{{$user->first()->email;}}</p>
                                         </DIV>    
                                         <DIV class="punkt">
                                             <p>email:</p>
-                                            <p>{{Auth::user()->email}}</p>
+                                            <p>{{$user->first()->avatar;}}</p>
                                         </DIV>      
                                     </div>
-                                   <div class="row mb-3">
+                            @if(Auth::id()==$user->first()->id)
+                            <div class="row mb-3">
                             <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
   
                             <div class="col-md-6">
@@ -44,7 +45,7 @@
                                 @enderror
                             </div>
                         </div>
-  
+                        
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -52,6 +53,8 @@
                                 </button>
                             </div>
                         </div>
+                        
+                        @endif
                     </form>
 </body>
 </html>

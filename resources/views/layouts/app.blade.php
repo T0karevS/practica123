@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" href="{{ asset("css/headermenu.css")}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="img\AGAT.svg" class="logo">
+                    <img src="http://127.0.0.1:8000/img/AGAT.svg" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -71,8 +71,37 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
+            
+    </nav>
+    @if(Auth::check())
+                <div class="menu-items">
+                <div  class="menu-item">
+                    <a href="/home">
+                        <img src="http://127.0.0.1:8000/img/globus.svg" alt="">
+                        <p class="item-text">Новости</p>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="/user/{{Auth::user()->id}}">
+                    <img src="http://127.0.0.1:8000/img/user.svg" alt="">
+                    <p class="item-text">Профиль</p>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="#">
+                    <img src="http://127.0.0.1:8000/img/message.svg" alt="">
+                    <p class="item-text"> Диалоги</p>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a href="/friends">
+                        <img src="http://127.0.0.1:8000/img/users.svg" alt="">
+                        <p class="item-text">Друзья</p>
+                    </a>
+                </div>
+            </div>      
+        </div>
+    @endif
         <main class="py-4">
             @yield('content')
         </main>

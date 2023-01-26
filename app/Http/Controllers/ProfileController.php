@@ -23,11 +23,10 @@ class ProfileController extends Controller
      */
     public function index($id)
     {
-        $user =  (DB::table('users')->where('id',$id)->get());
-
+        $user =  DB::table('users')->where('id',$id)->get();
+        // $user = Users::find($id);
         return view('profile', compact('user'));
     }
-  
     /**
      * Write code on Method
      *

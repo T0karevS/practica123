@@ -23,7 +23,7 @@
             </div>    
         </div>
     </header>
-    <div class="menu-items">
+    <!-- <div class="menu-items">
         <div  class="menu-item">
             <img src="img/globus.svg" alt="">
             <p class="item-text"><a href="#">Новости</a></p>
@@ -40,7 +40,7 @@
             <img src="img/users.svg" alt="">
             <p class="item-text"><a href="#">Друзья</a></p>
         </div>
-    </div>
+    </div> -->
     <div class="posts">
         <input type="text">
     </div>

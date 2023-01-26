@@ -20,7 +20,7 @@
             </div>    
         </div>
     </header> -->
-    <div class="menu-items">
+    <!-- <div class="menu-items">
         <div  class="menu-item">
             <a href="#">
                 <img src="img/globus.svg" alt="">
@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="menu-item">
-            <a href="{{ route('profile')}}">
+            <a href="/user/{{Auth::user()->id}}">
                 <img src="img/user.svg" alt="">
                 <p class="item-text">Профиль</p>
             </a>
@@ -45,9 +45,10 @@
             <p class="item-text">Друзья</p>
         </a>
         </div>
-    </div>
+    </div> -->
     <div class="posts">
         <input type="text">
+        
     </div>
     <div class="categories">
         <H2>Категории</H2>

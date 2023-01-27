@@ -34,8 +34,25 @@
 }
 .container ul{
     right: 10%;
+    margin-left:-100px ;
     
 }
 .pfp-min{
     background-color: #fff;
+}
+.container a{
+    margin-left: -110px;
+}
+.navbarDropdown{
+    right: 10%;
+}
+@media screen and (max-width: 1600px) {
+    .container a{
+        margin-left: 10px;
+    }    
+}
+@media screen and (max-width: 1280px) {
+    .container a{
+        margin-left: 60px;
+    }    
 }

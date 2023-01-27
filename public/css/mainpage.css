@@ -141,3 +141,74 @@ header{
     flex-wrap: wrap;
     margin: 200px auto 0px;
 }
+.posts{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-bottom: 150px;
+}
+.selector select{
+    
+    outline: none;
+    margin: 15px 0px 0px 0px;
+}
+.btnpost{
+    background-image:url("../img/plane.svg");
+    background-repeat: no-repeat;
+    background-color: #fff;
+    position: absolute;
+    
+    outline: none;
+    border: none;
+    background-position: center;
+    height: 30px;
+    width: 30px;
+}
+.textpost{
+    height: 30px;
+    outline: none;
+    width: 100%;
+    border: none;
+}
+.aboba1{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+.imginput{
+    display: none;
+}
+.posts label{
+    background-color: #fff;
+    border-radius: 30px;
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+}
+.aboba2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.postcard{
+    background-color: #fff;
+    margin: auto;
+    width: 40%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 40px;
+}
+.postpic{
+    max-height: 1080px;
+    max-width: 90%;
+    border-radius: 40px;
+    margin: auto;
+}
+.posttext{
+    padding: 0px 10px;
+}
+.list a
+{
+    text-decoration: none;
+    color: #000;
+}

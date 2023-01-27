@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Routes;
 use App\Http\Controllers\ProfileController;
-
-use App\User;
+use App\Http\Controllers\PostController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +33,8 @@ Route::get('/profile', function (){
     }
 })->name('profile');
 Route::get('/user/{id}', [ProfileController::class, 'index']);
+// Route::get('/user/{id}', [ProfileController::class, 'getPostbyID']);
+Route::get('/home/{category}', [PostController::class, 'getPostbyCat']);
 Route::name('user.')->group(function(){
     Route::view('/', 'home')->middleware('auth')->name('private');
     Route::get('/login', function(){
@@ -58,3 +60,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
 Route::get('/friends', [App\Http\Controllers\FriendsController::class, 'getUsers'])->name('user.friends.getUsers');
+Route::post('/home', [App\Http\Controllers\PostController::class, 'newPost'])->name('user.home.post');
+Route::get('/home', [App\Http\Controllers\PostController::class, 'getPost'])->name('user.home.getPosts');

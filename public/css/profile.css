@@ -1,12 +1,13 @@
 .userinfo{
-    position: absolute;
+
     background: rgb(255, 255, 255);
-    top: 150px;
+    width: 40%;
     left: 400px;
     padding: 20px;
     border-radius: 30px;    
     display: flex;
     flex-direction: column;
+    margin: 150px auto 100px;
 }
 .punkt{
     display: flex;
@@ -19,4 +20,12 @@
     width: 200px;
     height: 200px;
     border-radius: 100px;
+}
+.showupdate{
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 200px;
+    background-color: #fff;
+    outline: none;
+    margin: 0px auto 20px;
 }

@@ -5,65 +5,53 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <header>
-        <img class="logo" src="img\AGAT.svg" alt="">
-        <div class="search-input">
-            <input type="text" placeholder="Что ищешь?" class="search-text">
-            <input type="button" class="search">
-        </div>
-        <div class="aboba">
-            <img src="img/notification.svg" alt="">
-            <div class="profile-mini" >
-                <img class="avatar" src="img/chicha.png" alt="">
-                <p class="name">Lil chicha</p>
-                <img class="downbutton" src="img/down.png" alt="">
-            </div>    
-        </div>
-    </header> -->
-    <!-- <div class="menu-items">
-        <div  class="menu-item">
-            <a href="#">
-                <img src="img/globus.svg" alt="">
-                <p class="item-text">Новости</p>
-            </a>
-        </div>
-        <div class="menu-item">
-            <a href="/user/{{Auth::user()->id}}">
-                <img src="img/user.svg" alt="">
-                <p class="item-text">Профиль</p>
-            </a>
-        </div>
-        <div class="menu-item">
-            <a href="#">
-                <img src="img/message.svg" alt="">
-                <p class="item-text"> Диалоги</p>
-            </a>
-        </div>
-        <div class="menu-item">
-        <a href="/friends">
-            <img src="img/users.svg" alt="">
-            <p class="item-text">Друзья</p>
-        </a>
-        </div>
-    </div> -->
-    <div class="posts">
-        <input type="text">
-        
-    </div>
+    
+   <form class="posts" method="POST" action="{{route('user.home.post')}}" enctype="multipart/form-data">
+               @CSRF
+               <div class="aboba1">
+                    <input class="textpost" id="content" name="content" type="text" >
+                    <button class="btnpost" type="submit">
+               </div> 
+               <div class="aboba2">
+                <label for="img">выберите файл</label>
+                <input id="img" name="img" type="file" class="imginput">
+                <p class="selector"><select size="1" id="category" name="category">
+                   <option disabled>Выберите категорию</option>
+                   <option value="Спорт">Спорт</option>
+                   <option value="Путешествия">Путешествия</option>
+                   <option value="Музыка">Музыка</option>
+                   <option value="Кино">Кино</option>
+                   <option value="IT">IT</option>
+                   <option value="Политика">Политика</option>
+                   <option value="Киберспорт">Киберспорт</option>
+                   <option value="Искусство">Искусство</option>
+                  </select></p>
+               </div>
+                 
+   </form>
+   @php 
+    foreach ($allposts->reverse() as $post) {
+             echo '<div class="postcard">
+                     <p class="posttext">'.$post->category.'</p>
+                     <p class="posttext">'.$post->content.'</p>
+                    <img class="postpic" src="	http://127.0.0.1:8000/posts/'.$post->img.'">
+                </div>';
+         }
+        @endphp
     <div class="categories">
         <H2>Категории</H2>
         <div class="list">
             <div>
-                <p>Спорт</p>
-                <p>Кино</p>
-                <p>Музыка</p>
-                <p>IT</p>
+                <a href="../home/Спорт"><p>Спорт</p></a>
+                <a href="../home/Кино"><p>Кино</p></a>
+                <a href="../home/Музыка"><p>Музыка</p></a>
+                <a href="../home/IT"><p>IT</p></a>
             </div>
             <div>
-                <p>Путешествия</p>
-                <p>Политика</p>
-                <p>Киберспорт</p>
-                <p>Искусство</p>
+                <a href="../home/Путешествия"><p>Путешествия</p></a>
+                <a href="../home/Политика"><p>Политика</p></a>
+                <a href="../home/Киберспорт"><p>Киберспорт</p></a>
+                <a href="../home/Искусство"><p>Искусство</p></a>
             </div>    
         </div>
     </div>

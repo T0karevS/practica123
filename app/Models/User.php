@@ -42,8 +42,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    // public function setPasswordAttribute ($password)
-    // {
-    //     $this->attributes['password'] = Hash::make($password);
-    // }
+    public function setPasswordAttribute ($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
+    public function friendsOfMine()
+    {
+        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id');
+    }
+    public function friendOf()
+    {
+        return $this->belongsToMany('App\Models\User', 'friends', 'user_id', 'friend_id');
+    }
+    public function friends()
+    {
+        return $this->friendsOfMine()->wherePivot('accepted', true)->get()
+            ->merge($this->friendOf()->wherePivot('accepted', true)->get());
+    }
 }

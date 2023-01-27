@@ -11,13 +11,15 @@
     @extends('layouts.app')
 
     @section('content')
-
+    
+    
     <form class="users" method="GET" action="{{ route('user.friends.getUsers') }}" enctype="multipart/form-data">
+    
     @php 
-     foreach ($allusers as $user) {
+    foreach ($allusers->reverse() as $user) {
              echo '<div class="usercard">
                     <img class="profilepic" src="avatars/'.$user->avatar.'">
-                    <a href="../user/'.$user->id.'"><p class="username">'.$user->name.'</p></a> 
+                    <a href="   "><p class="username">'.$user->name.'</p></a> 
                 </div>';
          }
         @endphp

@@ -14,4 +14,5 @@ class FriendsController extends Controller
         $allusers = DB::table('users')->where('id','!=', $id)->get();
         return view('/friends', compact('allusers'));
     }
+    
 }

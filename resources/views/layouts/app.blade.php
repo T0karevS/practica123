@@ -20,7 +20,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     <img src="http://127.0.0.1:8000/img/AGAT.svg" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -96,7 +96,7 @@
                 <div class="menu-item">
                     <a href="/friends">
                         <img src="http://127.0.0.1:8000/img/users.svg" alt="">
-                        <p class="item-text">Друзья</p>
+                        <p class="item-text">Пользователи</p>
                     </a>
                 </div>
             </div>      

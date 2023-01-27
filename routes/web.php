@@ -57,7 +57,7 @@ Route::post('/registration', [App\Http\Controllers\registerController::class, 's
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'UpdPost'])->name('user.profile.UpdPost');
 Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('user.profile.store');
 Route::get('/friends', [App\Http\Controllers\FriendsController::class, 'getUsers'])->name('user.friends.getUsers');
 Route::post('/home', [App\Http\Controllers\PostController::class, 'newPost'])->name('user.home.post');

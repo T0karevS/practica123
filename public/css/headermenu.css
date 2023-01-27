@@ -41,7 +41,7 @@
     background-color: #fff;
 }
 .container a{
-    margin-left: -110px;
+    /* margin-left: -110px; */
 }
 .navbarDropdown{
     right: 10%;

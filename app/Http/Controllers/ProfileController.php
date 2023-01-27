@@ -52,9 +52,14 @@ class ProfileController extends Controller
   
         return back()->with('success', 'profile updated successfully.');
     }
-//     public function getPostbyID($id)
-//    {
-    
-//     return view('/profile', compact('allposts'));
-//    }
+    public function UpdPost($id)
+    {
+        $newCon = $request->content;
+        $userID = Auth::id();  
+        $category = $request->category;
+        $imgName = time().'.'.$request->img->getClientOriginalExtension();
+        $request->img->move(public_path('posts'), $imgName);
+        $allposts = DB::table('_posts')->update(['img'=>$imgName, 'content'=>$newCon, 'user_id'=>$userID, 'category'=>$category]);
+        return back()->with('success');
+    }
 }
